@@ -8,7 +8,7 @@ const { JWT_SECRET, authMiddleware } = require('../middleware/auth')
 const router = express.Router()
 
 // API 签名密钥（前后端共享）
-const API_SIGN_KEY = 'zhihui-yiyang-2024-api-sign'
+const API_SIGN_KEY = process.env.API_SIGN_KEY || 'zhihui-yiyang-2024-api-sign'
 
 // IP 频率限制存储
 const rateLimitMap = new Map()

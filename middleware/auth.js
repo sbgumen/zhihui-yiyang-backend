@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 
-const JWT_SECRET = 'zhihui-yiyang-2024-secret-key'
+const JWT_SECRET = process.env.JWT_SECRET || 'zhihui-yiyang-2024-secret-key'
 
 function authMiddleware(req, res, next) {
   const authHeader = req.headers.authorization

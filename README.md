@@ -615,21 +615,22 @@ CMD ["node", "server.js"]
 
 ## 环境变量
 
-### `.env` 配置文件
+所有敏感配置已通过 `.env` 文件管理。复制 `.env.example` 为 `.env` 并修改对应值。
+
+### `.env` 完整配置
 
 | 变量 | 必填 | 默认值 | 说明 |
 |------|------|--------|------|
+| `DB_HOST` | 否 | `localhost` | MySQL 主机地址 |
+| `DB_USER` | 否 | `zhjy` | 数据库用户名 |
+| `DB_PASSWORD` | 否 | `123456lzx` | 数据库密码 |
+| `DB_NAME` | 否 | `zhjy` | 数据库名 |
+| `DB_CONNECTION_LIMIT` | 否 | `10` | 连接池大小 |
+| `JWT_SECRET` | 否 | `zhihui-yiyang-2024-secret-key` | JWT 签名密钥（**生产环境务必修改**） |
+| `API_SIGN_KEY` | 否 | `zhihui-yiyang-2024-api-sign` | SMS 接口 HMAC 签名密钥（**生产环境务必修改**） |
 | `MUSIC_U_COOKIE` | 否 | — | 网易云音乐登录 Cookie（QR 登录后自动写入） |
 
-### `config/db.js` 数据库配置
-
-| 配置项 | 默认值 | 说明 |
-|--------|--------|------|
-| host | `localhost` | MySQL 主机地址 |
-| user | `zhjy` | 数据库用户名 |
-| password | `123456lzx` | 数据库密码 |
-| database | `zhjy` | 数据库名 |
-| connectionLimit | 10 | 连接池大小 |
+> 开发时无需配置 `.env` 也可运行，所有变量均有默认值。生产环境请务必修改 `JWT_SECRET` 和 `API_SIGN_KEY`。
 
 ---
 
